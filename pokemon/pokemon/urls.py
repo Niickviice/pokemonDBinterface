@@ -24,5 +24,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.index, name = "index"),
     path("hola-mundo/", views.hola_mundo, name = "hola_mundo"),
-    path("pokemon/", views.pagina, name = "pagina")
+    path("pokemon/", views.pagina, name = "pagina"),
+    path('crear-pokemon/', views.crear_pokemon, name = 'crear_pokemon'),
 ]

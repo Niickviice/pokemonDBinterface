@@ -26,12 +26,14 @@ def crear_pokemon(request):
         datos = json.load(json_file)
     for i, data in datos.items():
         for j, k in data.items():
-            id_p = int(data['species_id']),
-            peso = int(data['weight']),
-            nombre = data['identifier'],
-            experiencia = int(data['base_experience'])
-            
-            new_pokemon = pokemon(id_pokemon=id_p, peso=peso, nombre=nombre, experiencia=experiencia)
-            new_pokemon.save()
-
+            if j == 'species_id':
+                id_p = int(data['species_id'])
+            if j == 'weight':
+                peso = int(data['weight'])
+            if j == 'identifier':
+                nombre = data['identifier']
+            if j == 'base_experience':
+                experiencia = int(data['base_experience'])
+        new_pokemon = pokemon(id_pokemon=id_p, peso=peso, nombre=nombre, experiencia=experiencia)
+        new_pokemon.save()
     return HttpResponse("Usuario creado:" )
